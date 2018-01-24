@@ -7,9 +7,20 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+//var HBase = require('hbase-client');
 
 var app = express();
 
+// habse connection
+/*var client = HBase.create({
+  zookeeperHosts: [
+    '10.0.8.3:16010' // only local zookeeper
+  ],
+  zookeeperRoot: '/hbase',
+});
+client.getRow('ZTworldcitiespop2', '\x00\x00\xBBk', ['FamilyLat:latitude', 'FamilyLong:longitude', 'FamilyPop:population'], function (err, row) {
+  console.log(row);
+}); */
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
