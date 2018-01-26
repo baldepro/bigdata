@@ -12,7 +12,6 @@
     "express": "~4.15.5",
     "hbase": "^0.3.0",
     "hbase-client": "^1.6.1",
-    "hbase-rpc-client": "^0.1.14",
     "heatmapjs": "^2.0.2",
     "jade": "~1.11.0",
     "morgan": "~1.9.0",

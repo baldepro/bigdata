@@ -11,16 +11,18 @@ var users = require('./routes/users');
 
 var app = express();
 
-// habse connection
-/*var client = HBase.create({
-  zookeeperHosts: [
-    '10.0.8.3:16010' // only local zookeeper
-  ],
-  zookeeperRoot: '/hbase',
+
+var hbase = require('hbase');
+console.log("serveur waye");
+hbase({ host: '10.0.8.3', port: 16010 })
+.table('test2')
+.scan({
+  startRow: '0',
+  maxVersions: 1
+}, function(err, rows){
+  console.log(err, rows);
 });
-client.getRow('ZTworldcitiespop2', '\x00\x00\xBBk', ['FamilyLat:latitude', 'FamilyLong:longitude', 'FamilyPop:population'], function (err, row) {
-  console.log(row);
-}); */
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
